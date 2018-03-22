@@ -9,4 +9,17 @@
     <color name="colorText">#212121</color>
     <color name="colorSecondText">#757575</color>
     <color name="colorDivider">#BDBDBD</color>
+
+
+
+    <!-- TabLayout -->
+    <color name="tab_indicator">#d6d6d6</color>
+    <color name="tab_tv_normal">#999999</color>
+    <color name="tab_tv_selected">#03A9F4</color>
+    <color name="tab_bg">#fcfcfc</color>
+    <color name="tab_div">#d6d6d6</color>
+    <color name="bg_more">#F9F9F9</color>
+    <color name="divider">#EEEEEE</color>
+    <color name="click">#0288D1</color>
+    <color name="focus">#B3E5FC</color>
 </resources>

@@ -46,4 +46,7 @@ dependencies {
 
     //沉浸式状态栏
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    //搜索控件
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
 }

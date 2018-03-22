@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">DouMu</string>
+    <string name="app_name">豆幕</string>
+
+    <string name="main_menu_home">热映</string>
+    <string name="main_menu_top">榜单</string>
+    <string name="main_menu_mine">我的</string>
 </resources>

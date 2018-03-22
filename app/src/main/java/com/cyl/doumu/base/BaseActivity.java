@@ -49,7 +49,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public int getStatusBarTintResource() {
-        return R.color.colorPrimary;
+        return R.color.colorPrimaryDark;
     }
 
     @TargetApi(19)
@@ -64,6 +64,9 @@ public class BaseActivity extends AppCompatActivity {
         getWindow().setAttributes(layoutParams);
     }
 
+    /**
+     * 打开设置
+     */
     protected void startApplicationSettingActivity() {
         Intent intent = new Intent();
         intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);

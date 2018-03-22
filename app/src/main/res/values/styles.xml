@@ -8,4 +8,32 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <!--页面背景色-->
+        <!--<item name="android:windowBackground">@color/bg_color</item>-->
+        <!--ToolBar上的Title颜色-->
+        <item name="android:textColorPrimary">@color/white</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="colorButtonNormal">@color/colorPrimary</item><!--正常状态下的颜色  -->
+        <item name="colorControlHighlight">#22000000</item><!--覆盖色，按下的颜色  -->
+    </style>
+
+    <!-- 底部菜单导航样式 -->
+    <style name="main_menu_style" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/tab_indicator</item>
+        <item name="tabTextColor">@color/colorSecondText</item>
+        <item name="tabSelectedTextColor">@color/colorPrimary</item>
+        <item name="tabBackground">@drawable/bg_tab_border_selecter</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
+    <!--
+    1.tabIndicatorColor：TabLayout指示器的颜色
+    2.tabTextColor: tab默认字体的颜色
+    3.tabSelectedTextColor：当前选择的tab的字体颜色
+    4.tabBackground：背景
+    5.tabIndicatorHeight：TabLayout指示器高度
+    -->
 </resources>
