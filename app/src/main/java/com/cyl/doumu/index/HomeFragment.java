@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.cyl.doumu.MyApplication;
 import com.cyl.doumu.R;
 import com.cyl.doumu.base.BaseFragment;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -32,7 +34,7 @@ import butterknife.OnClick;
  * @date: 2018-03-22  17:06
  * @version: V1.0
  */
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements HomeContract.View{
     @BindView(R.id.search_view)
     MaterialSearchView searchView;
     @BindView(R.id.toolbar)
@@ -95,6 +97,48 @@ public class HomeFragment extends BaseFragment {
 
     }
 
+    @Override
+    public void showLoading() {
 
+    }
 
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void showHotListData() {
+
+    }
+
+    @Override
+    public void showUpcoming() {
+
+    }
+
+    @Override
+    public void showEmpty() {
+
+    }
+
+    @Override
+    public void showError() {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return false;
+    }
+
+    @Override
+    public void setPresenter(@NonNull HomeContract.Presenter presenter) {
+
+    }
+
+    @Override
+    public void isNightMode(boolean isNight) {
+
+    }
 }

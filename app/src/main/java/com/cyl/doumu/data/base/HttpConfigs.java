@@ -1,0 +1,11 @@
+package com.cyl.doumu.data.base;
+
+/*
+ * @Description: 
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/3/23 0023$ 15:42$
+ */
+public class HttpConfigs {
+    public static String BASE_URL="";
+}
