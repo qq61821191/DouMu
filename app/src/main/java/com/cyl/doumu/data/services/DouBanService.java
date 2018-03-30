@@ -15,5 +15,5 @@ import retrofit2.http.Query;
 public interface DouBanService {
 
     @GET("/v2/movie/in_theaters")
-    Flowable<MovieListBean> getHotData(@Query("count")int count,@Query("start")int start,@Query("city")String city);
+    Flowable<MovieListBean> getHotData(@Query("start")int start,@Query("count")int count,@Query("city")String city);
 }

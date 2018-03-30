@@ -1,8 +1,12 @@
 package com.cyl.doumu.data;
 
+import com.cyl.doumu.bean.MovieListBean;
+import com.cyl.doumu.data.base.HttpConfigs;
 import com.cyl.doumu.data.base.RetrofitHelper;
 import com.cyl.doumu.data.services.DouBanService;
 
+import io.reactivex.Flowable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 
 /*
@@ -30,11 +34,18 @@ public class DouBanImpl {
         return mDouBanImpl;
     }
 
-    public synchronized DouBanService getService() {
+    private synchronized DouBanService getService() {
         if (mDouBanService == null) {
             Retrofit retrofit = RetrofitHelper.getInstance().getRetrofit();
             mDouBanService = retrofit.create(DouBanService.class);
         }
         return mDouBanService;
+    }
+
+
+    public Flowable<MovieListBean> getHotData(int start){
+
+
+        return getService().getHotData(start, HttpConfigs.PAGE_SIZE,"福州");
     }
 }

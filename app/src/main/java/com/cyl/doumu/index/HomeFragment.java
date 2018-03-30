@@ -43,6 +43,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
     public View inflateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view=inflater.inflate(R.layout.fragment_home,container,false);
         ButterKnife.bind(this,view);
+        initView(view);
+        return view;
+    }
+
+    private void initView(final View view){
         setHasOptionsMenu(true);
         ((MainActivity) getActivity()).setSupportActionBar(toolbar);
         //toolbar.inflateMenu(R.menu.item_search);
@@ -65,7 +70,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
                 return false;
             }
         });
-        return view;
     }
 
 

@@ -7,5 +7,6 @@ package com.cyl.doumu.data.base;
  * @Create: 2018/3/23 0023$ 15:42$
  */
 public class HttpConfigs {
-    public static String BASE_URL="";
+    public static final String BASE_URL="";
+    public static final int PAGE_SIZE=20;
 }
