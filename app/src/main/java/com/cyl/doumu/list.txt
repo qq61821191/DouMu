@@ -1,0 +1,73 @@
+文件夹 PATH 列表
+卷序列号为 000E-734C
+E:.
+│  list.txt
+│  MyApplication.java
+│  
+├─base
+│      BaseActivity.java
+│      BaseFragment.java
+│      BasePresenter.java
+│      BaseView.java
+│      
+├─bean
+│      Avatar.java
+│      Cast.java
+│      Director.java
+│      Images.java
+│      MovieEntry.java
+│      MovieListBean.java
+│      Rating.java
+│      
+├─data
+│  │  DouBanImpl.java
+│  │  
+│  ├─base
+│  │      BasicParamsInterceptor.java
+│  │      HttpConfigs.java
+│  │      OKHttpHelper.java
+│  │      RetrofitHelper.java
+│  │      StringConverter.java
+│  │      StringConverterFactory.java
+│  │      
+│  └─services
+│          DouBanService.java
+│          
+├─index
+│  │  HomeContract.java
+│  │  HomeFragment.java
+│  │  HotContract.java
+│  │  HotFragment.java
+│  │  HotPresenter.java
+│  │  MainActivity.java
+│  │  UpComingContract.java
+│  │  UpComingFragment.java
+│  │  UpComingPresenter.java
+│  │  
+│  └─adapter
+│          HotListAdapter.java
+│          UpComingListAdapter.java
+│          
+├─movice
+│      MoviceDetailsActivity.java
+│      MoviceDetailsContract.java
+│      MoviceInfoActivity.java
+│      
+├─splash
+│      SplashActivity.java
+│      SplashContract.java
+│      SplashPresenter.java
+│      
+├─top
+│      TopContract.java
+│      TopDataListAdapter.java
+│      TopFragment.java
+│      TopPresenter.java
+│      TopTypeListAdapter.java
+│      
+└─utils
+        Blur.java
+        NetUtil.java
+        SPUtils.java
+        UIUtils.java
+        
