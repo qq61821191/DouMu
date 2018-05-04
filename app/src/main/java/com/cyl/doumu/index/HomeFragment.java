@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -16,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TableLayout;
 
 import com.cyl.doumu.MyApplication;
 import com.cyl.doumu.R;
@@ -39,6 +45,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
     MaterialSearchView searchView;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.tl_Home)
+    TabLayout mTabLayout;
+    @BindView(R.id.viewpager)
+    ViewPager mViewPager;
+
+
+
+    private Fragment[] fragments=new Fragment[]{new HotFragment(),new UpComingFragment()};
+    private String[] titles=new String[]{"正在热映","即将上映"};
+
     @Override
     public View inflateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view=inflater.inflate(R.layout.fragment_home,container,false);
@@ -70,6 +86,31 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
                 return false;
             }
         });
+
+        MyViewPagerAdapter adapter=new MyViewPagerAdapter(getChildFragmentManager());
+        mViewPager.setAdapter(adapter);
+        mTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    class MyViewPagerAdapter extends FragmentPagerAdapter{
+        public MyViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles[position];
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragments[position];
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.length;
+        }
     }
 
 
@@ -116,10 +157,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
     }
 
-    @Override
-    public void showUpcoming() {
 
-    }
 
     @Override
     public void showEmpty() {
@@ -127,7 +165,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
     }
 
     @Override
-    public void showError() {
+    public void showError(String err) {
 
     }
 
@@ -143,6 +181,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
     @Override
     public void isNightMode(boolean isNight) {
+
+    }
+
+    @Override
+    public void initData() {
 
     }
 }

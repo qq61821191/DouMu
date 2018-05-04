@@ -1,79 +1,183 @@
 package com.cyl.doumu.base;
 
 import android.annotation.TargetApi;
-import android.content.Intent;
-import android.net.Uri;
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.Window;
 import android.view.WindowManager;
 
 import com.cyl.doumu.MyApplication;
 import com.cyl.doumu.R;
+import com.cyl.doumu.utils.SPUtils;
+import com.cyl.doumu.utils.UIUtils;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-import butterknife.ButterKnife;
-
-
 /**
- * @description: Activity基类
- * @author: Cyl
- * @date: 2018-03-20  16:59
- * @version: V1.0
+ * Author   :hymanme
+ * Email    :hymanme@163.com
+ * Create at 2016/7/14
+ * Description:所有activity的基类，处理activity的共性内容和逻辑
  */
-public class BaseActivity extends AppCompatActivity {
 
-    static {
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-    }
-
-    protected MyApplication application;
+public abstract class BaseActivity extends AppCompatActivity {
+    protected final String TAG = getClass().getSimpleName();
+    public static BaseActivity activity;
+    protected Toolbar mToolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus(true);
+        activity = this;
+        ((MyApplication) UIUtils.getContext()).addActivity(this);
+        init();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        activity = this;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        activity = null;
+    }
+
+    private void init() {
+        if (isInitSystemBar()) {
+            initSystemBar(this);
         }
+    }
 
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-        tintManager.setNavigationBarTintEnabled(false);
-        tintManager.setStatusBarTintResource(getStatusBarTintResource());
+    /**
+     * 获取toolbar
+     *
+     * @return
+     */
+    public Toolbar getToolbar() {
+        return mToolbar;
+    }
 
-        application = (MyApplication) getApplication();
+    private void initSystemBar(Activity activity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                setTranslucentStatus(activity, true);
+            }
+            SystemBarTintManager tintManager = new SystemBarTintManager(activity);
+            tintManager.setStatusBarTintEnabled(true);
+            // 使用颜色资源
+            tintManager.setStatusBarTintResource(getStatusColor());
+        }
+    }
+
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (null != mToolbar) {
+            setSupportActionBar(mToolbar);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
     }
 
-    public int getStatusBarTintResource() {
+    /**
+     * 状态栏的颜色
+     * 子类可以通过复写这个方法来修改状态栏颜色
+     *
+     * @return ID
+     */
+    protected int getStatusColor() {
+//        if (SPUtils.getPrefBoolean(Constant.THEME_MODEL, false)) {
+//            return R.color.colorPrimaryDarkNight;
+//        } else {
+//            return R.color.colorPrimaryDark;
+//        }
         return R.color.colorPrimaryDark;
     }
 
     @TargetApi(19)
-    private void setTranslucentStatus(boolean on) {
-        WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-        final int bit = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-        if(on) {
-            layoutParams.flags |= bit;
+    protected void setTranslucentStatus(Activity activity, boolean on) {
+        Window win = activity.getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on) {
+            winParams.flags |= bits;
         } else {
-            layoutParams.flags &= ~bit;
+            winParams.flags &= ~bits;
         }
-        getWindow().setAttributes(layoutParams);
+        win.setAttributes(winParams);
     }
 
     /**
-     * 打开设置
+     * 菜单按钮初始化
+     *
+     * @param menu
+     * @return
      */
-    protected void startApplicationSettingActivity() {
-        Intent intent = new Intent();
-        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        Uri uri = Uri.fromParts("package", getPackageName(), null);
-        intent.setData(uri);
-        startActivity(intent);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+
+        getMenuInflater().inflate(getMenuID(), menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
+    /***
+     * 默认toolbar不带menu，复写该方法指定menu
+     *
+     * @return
+     */
+    protected int getMenuID() {
+        return R.menu.menu_empty;
+    }
+
+    /**
+     * 是否初始化状态栏
+     *
+     * @return
+     */
+    protected boolean isInitSystemBar() {
+        return true;
+    }
+
+    /**
+     * 是否显示菜单  默认显示
+     *
+     * @return
+     */
+    protected boolean showMenu() {
+        return true;
+    }
+
+    /**
+     * activity退出时将activity移出栈
+     */
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ((MyApplication) UIUtils.getContext()).removeActivity(this);
+    }
 }

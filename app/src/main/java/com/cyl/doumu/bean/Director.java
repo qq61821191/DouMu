@@ -1,12 +1,14 @@
 package com.cyl.doumu.bean;
 
+import java.io.Serializable;
+
 /*
  * @Description: 导演
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/23 0023$ 17:18$
  */
-public class Director {
+public class Director implements Serializable{
     private String alt;
 
     private Avatar avatar;

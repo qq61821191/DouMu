@@ -17,8 +17,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+
         <item name="colorButtonNormal">@color/colorPrimary</item><!--正常状态下的颜色  -->
         <item name="colorControlHighlight">#22000000</item><!--覆盖色，按下的颜色  -->
+    </style>
+
+    <style name="AppTheme.NoActionBar.Details">
+
     </style>
 
     <!-- 底部菜单导航样式 -->
@@ -36,4 +41,27 @@
     4.tabBackground：背景
     5.tabIndicatorHeight：TabLayout指示器高度
     -->
+
+    <!-- 头部选项卡样式 -->
+    <style name="tablayout" parent="Widget.Design.TabLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+        <item name="tabSelectedTextColor">@color/colorPrimary</item>
+        <item name="tabTextColor">@color/colorText</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabTextAppearance">@style/TabLayoutTextStyle</item>
+    </style>
+
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 </resources>

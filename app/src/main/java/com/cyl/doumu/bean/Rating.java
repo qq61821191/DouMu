@@ -1,12 +1,14 @@
 package com.cyl.doumu.bean;
 
+import java.io.Serializable;
+
 /*
  * @Description: 评分
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/23 0023$ 17:12$
  */
-public class Rating {
+public class Rating implements Serializable {
     private int max;
 
     private double average;

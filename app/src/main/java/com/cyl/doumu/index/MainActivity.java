@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.cyl.doumu.R;
 import com.cyl.doumu.base.BaseActivity;
+import com.cyl.doumu.top.TopFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,7 +35,7 @@ public class MainActivity extends BaseActivity {
     //Tab 图片
     private final int[] TAB_IMGS = new int[]{R.drawable.sl_menu_home,R.drawable.sl_menu_top,R.drawable.sl_menu_my};
     //Fragment 数组
-    private final Fragment[] TAB_FRAGMENTS = new Fragment[] {new HomeFragment(),new TopFragment(),new TopFragment()};
+    private final Fragment[] TAB_FRAGMENTS = new Fragment[] {new HomeFragment(),new TopFragment(),new HotFragment()};
     //Tab 数目
     private final int COUNT = TAB_TITLES.length;
     private MyViewPagerAdapter mAdapter;
@@ -49,13 +50,13 @@ public class MainActivity extends BaseActivity {
         initViews();
     }
 
+    //初始化界面
     private void initViews() {
         setTabs(mTabLayout,this.getLayoutInflater(),TAB_TITLES,TAB_IMGS);
-
         mAdapter = new MyViewPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-        mTabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+        mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
     }
 
     /**

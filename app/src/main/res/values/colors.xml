@@ -22,4 +22,8 @@
     <color name="divider">#EEEEEE</color>
     <color name="click">#0288D1</color>
     <color name="focus">#B3E5FC</color>
+
+    <color name="text_Grey">#cfd8dc</color>
+    <color name="item_selector_color">#fafafa</color>
+    <color name="title_mask">#80000000</color>
 </resources>

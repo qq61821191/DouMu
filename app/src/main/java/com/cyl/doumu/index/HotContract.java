@@ -2,6 +2,7 @@ package com.cyl.doumu.index;
 
 import com.cyl.doumu.base.BasePresenter;
 import com.cyl.doumu.base.BaseView;
+import com.cyl.doumu.bean.MovieListBean;
 
 /*
  * @Description: 
@@ -9,12 +10,13 @@ import com.cyl.doumu.base.BaseView;
  * @Version: V1.0
  * @Create: 2018/3/23 0023$ 11:13$
  */
-public interface HomeContract {
+public interface HotContract {
     interface View extends BaseView<Presenter> {
 
 
 
-        void showHotListData();
+        void showHotListData(MovieListBean lists);
+
 
         boolean isActive();
     }
@@ -22,6 +24,7 @@ public interface HomeContract {
     interface Presenter extends BasePresenter {
 
         void getHotData();
+
 
     }
 }

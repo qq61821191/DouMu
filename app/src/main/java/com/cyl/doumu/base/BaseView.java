@@ -20,6 +20,14 @@ public interface BaseView<T> {
 
     void setPresenter(T presenter);
 
+    void showLoading();
+
+    void hideLoading();
+
+    void showEmpty();
+
+    void showError(String err);
+
     /**
      * 切换夜间模式
      * @param isNight 是否切换为夜间模式

@@ -1,12 +1,14 @@
 package com.cyl.doumu.bean;
 
+import java.io.Serializable;
+
 /*
  * @Description: 电影海报
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/23 0023$ 17:12$
  */
-public class Images {
+public class Images implements Serializable{
     private String small;
 
     private String large;

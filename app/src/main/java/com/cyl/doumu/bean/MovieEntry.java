@@ -1,5 +1,6 @@
 package com.cyl.doumu.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /*
@@ -8,7 +9,7 @@ import java.util.List;
  * @Version: V1.0
  * @Create: 2018/3/23 0023$ 16:29$
  */
-public class MovieEntry {
+public class MovieEntry implements Serializable{
     private Rating rating;
 
     private String[] genres ;
@@ -32,6 +33,26 @@ public class MovieEntry {
     private String alt;
 
     private String id;
+
+    private int wish_count;
+
+    private int ratings_count;
+
+    public int getWish_count() {
+        return wish_count;
+    }
+
+    public void setWish_count(int wish_count) {
+        this.wish_count = wish_count;
+    }
+
+    public int getRatings_count() {
+        return ratings_count;
+    }
+
+    public void setRatings_count(int ratings_count) {
+        this.ratings_count = ratings_count;
+    }
 
     public Rating getRating() {
         return rating;
