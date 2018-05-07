@@ -2,6 +2,7 @@ package com.cyl.doumu.data;
 
 import android.database.Observable;
 
+import com.cyl.doumu.bean.MovieEntry;
 import com.cyl.doumu.bean.MovieListBean;
 import com.cyl.doumu.data.base.HttpConfigs;
 import com.cyl.doumu.data.base.RetrofitHelper;
@@ -76,5 +77,8 @@ public class DouBanImpl {
         return getService().getBestNew(start,HttpConfigs.PAGE_SIZE);
     }
 
+    public Flowable<MovieEntry> getMovieInfo(String id){
+        return getService().getMovieInfo(id);
+    }
 
 }

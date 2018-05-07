@@ -1,10 +1,14 @@
 package com.cyl.doumu.data.services;
 
+import android.graphics.Movie;
+
+import com.cyl.doumu.bean.MovieEntry;
 import com.cyl.doumu.bean.MovieListBean;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /*
@@ -32,4 +36,7 @@ public interface DouBanService {
 
     @GET("/v2/movie/new_movies")
     Flowable<MovieListBean> getBestNew(@Query("start") int start,@Query("count") int count);
+
+    @GET("/v2/movie/subject/{id}")
+    Flowable<MovieEntry> getMovieInfo(@Path("id")String id);
 }

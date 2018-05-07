@@ -5,7 +5,8 @@
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -15,20 +16,29 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textColor="@color/colorSecondText"
+                android:text="原名：The Black Cauldron"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorSecondText"
+                android:layout_marginTop="4dp"
                 android:text="2018年 美国"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textColor="@color/colorSecondText"
+                android:layout_marginTop="4dp"
                 android:text="动作 / 科幻 / 冒险"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/colorSecondText"
-                android:text="分类：战争"/>
+                android:text="500 人收藏"/>
         </LinearLayout>
     </RelativeLayout>
 
