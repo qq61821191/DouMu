@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Cast implements Serializable {
     private String alt;
 
-    private Avatar avatar;
+    private Avatar avatars;
 
     private String name;
 
@@ -23,11 +23,11 @@ public class Cast implements Serializable {
     public String getAlt(){
         return this.alt;
     }
-    public void setAvatar(Avatar avatar){
-        this.avatar = avatar;
+    public void setAvatars(Avatar avatars){
+        this.avatars = avatars;
     }
     public Avatar getAvatar(){
-        return this.avatar;
+        return this.avatars;
     }
     public void setName(String name){
         this.name = name;

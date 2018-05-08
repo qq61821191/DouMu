@@ -13,17 +13,14 @@ import com.cyl.doumu.bean.MovieListBean;
 public interface HotContract {
     interface View extends BaseView<Presenter> {
 
-
-
         void showHotListData(MovieListBean lists);
-
 
         boolean isActive();
     }
 
     interface Presenter extends BasePresenter {
 
-        void getHotData();
+        void getHotData(int page);
 
 
     }

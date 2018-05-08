@@ -3,6 +3,7 @@ package com.cyl.doumu.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.Toast;
 
 import com.cyl.doumu.MyApplication;
 import com.cyl.doumu.R;
@@ -34,5 +35,8 @@ public class UIUtils {
         }
     }
 
+    public static void toastData(String content){
+        Toast.makeText(getContext(),content,Toast.LENGTH_LONG).show();
+    }
 
 }

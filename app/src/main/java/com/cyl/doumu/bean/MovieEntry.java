@@ -22,6 +22,10 @@ public class MovieEntry implements Serializable{
 
     private String original_title;
 
+    private String[] countries;
+
+    private String summary;
+
     private String subtype;
 
     private List<Director> directors ;
@@ -148,5 +152,21 @@ public class MovieEntry implements Serializable{
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String[] getCountries() {
+        return countries;
+    }
+
+    public void setCountries(String[] countries) {
+        this.countries = countries;
     }
 }

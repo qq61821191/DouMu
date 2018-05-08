@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.cyl.doumu.bean.MovieListBean;
 import com.cyl.doumu.data.DouBanImpl;
+import com.cyl.doumu.data.base.HttpConfigs;
 
 import org.reactivestreams.Subscription;
 
@@ -38,9 +39,9 @@ public class HotPresenter implements HotContract.Presenter {
     }
 
     @Override
-    public void getHotData() {
+    public void getHotData(int page) {
         addSubscription(
-       mDoubanImpl.getHotData(0)
+       mDoubanImpl.getHotData((page-1)* HttpConfigs.PAGE_SIZE)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Subscription>() {
                     @Override
@@ -53,9 +54,7 @@ public class HotPresenter implements HotContract.Presenter {
                 .subscribe(new Consumer<MovieListBean>() {
                     @Override
                     public void accept(MovieListBean movieListBean) throws Exception {
-                        if(movieListBean.getSubjects().size()!=0){
                             mView.showHotListData(movieListBean);
-                        }
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -78,7 +77,7 @@ public class HotPresenter implements HotContract.Presenter {
 
     @Override
     public void subscribe() {
-        getHotData();
+        getHotData(1);
     }
 
     @Override

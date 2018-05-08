@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.cyl.doumu.bean.MovieListBean;
 import com.cyl.doumu.data.DouBanImpl;
+import com.cyl.doumu.data.base.HttpConfigs;
 
 import org.reactivestreams.Subscription;
 
@@ -49,7 +50,7 @@ public class TopPresenter implements TopContract.Presenter {
     @Override
     public void getTop250(int start) {
         addSubscription(
-        mDouBan.getTop250(start)
+        mDouBan.getTop250((start-1)* HttpConfigs.PAGE_SIZE)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Subscription>() {
                     @Override
@@ -62,7 +63,7 @@ public class TopPresenter implements TopContract.Presenter {
                 .subscribe(new Consumer<MovieListBean>() {
                     @Override
                     public void accept(MovieListBean movieListBean) throws Exception {
-                        mView.showTop250Data(movieListBean);
+                        mView.showData(movieListBean);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -75,7 +76,7 @@ public class TopPresenter implements TopContract.Presenter {
     @Override
     public void getUsBox(int start) {
         addSubscription(
-        mDouBan.getUsBox(start)
+        mDouBan.getUsBox((start-1)* HttpConfigs.PAGE_SIZE)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Subscription>() {
                     @Override
@@ -88,7 +89,7 @@ public class TopPresenter implements TopContract.Presenter {
                 .subscribe(new Consumer<MovieListBean>() {
                     @Override
                     public void accept(MovieListBean movieListBean) throws Exception {
-                        mView.showUsBox(movieListBean);
+                        mView.showData(movieListBean);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -101,7 +102,7 @@ public class TopPresenter implements TopContract.Presenter {
     @Override
     public void getWeekly(int start) {
         addSubscription(
-        mDouBan.getWeekly(start)
+        mDouBan.getWeekly((start-1)* HttpConfigs.PAGE_SIZE)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Subscription>() {
                     @Override
@@ -114,7 +115,7 @@ public class TopPresenter implements TopContract.Presenter {
                 .subscribe(new Consumer<MovieListBean>() {
                     @Override
                     public void accept(MovieListBean movieListBean) throws Exception {
-                        mView.showWeekly(movieListBean);
+                        mView.showData(movieListBean);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -127,7 +128,7 @@ public class TopPresenter implements TopContract.Presenter {
     @Override
     public void getBestNew(int start) {
         addSubscription(
-        mDouBan.getBestNew(start)
+        mDouBan.getBestNew((start-1)* HttpConfigs.PAGE_SIZE)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Subscription>() {
                     @Override
@@ -140,7 +141,7 @@ public class TopPresenter implements TopContract.Presenter {
                 .subscribe(new Consumer<MovieListBean>() {
                     @Override
                     public void accept(MovieListBean movieListBean) throws Exception {
-                        mView.showBestNewData(movieListBean);
+                        mView.showData(movieListBean);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -153,7 +154,7 @@ public class TopPresenter implements TopContract.Presenter {
     @Override
     public void subscribe() {
         getType();
-        getTop250(0);
+        getTop250(1);
     }
 
     @Override

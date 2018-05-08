@@ -6,19 +6,26 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v7.content.res.AppCompatResources;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.cyl.doumu.R;
 import com.cyl.doumu.base.BaseActivity;
+import com.cyl.doumu.bean.Cast;
 import com.cyl.doumu.bean.Images;
 import com.cyl.doumu.bean.MovieEntry;
 import com.cyl.doumu.utils.Blur;
 import com.ms.square.android.expandabletextview.ExpandableTextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,10 +41,26 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
     CollapsingToolbarLayout mCollapsingLayout;
     @BindView(R.id.expand_text_view)
     ExpandableTextView etvContent;
-    @BindView(R.id.rv_movie_info_comment_list)
-    RecyclerView rv_commnet;
+    @BindView(R.id.rv_movie_info_casts)
+    RecyclerView rv_casts;
+
+    @BindView(R.id.tv_movie_info_original_name)
+    TextView tvOriginalName;
+    @BindView(R.id.tv_movie_info_country)
+    TextView tvCountryAndYear;
+    @BindView(R.id.tv_movie_info_types)
+    TextView tvTypes;
+    @BindView(R.id.tv_movie_info_collection_num)
+    TextView tvCollectionNum;
+    @BindView(R.id.tv_movie_info_score)
+    TextView tvScore;
+    @BindView(R.id.tv_movie_info_score_num)
+    TextView tvScoreNum;
 
     private MovieEntry mEntry;
+    private MoviceInfoContract.Presenter mPresenter;
+    private MovieCastsAdapter mCastsAdapter;
+    private List<Cast> casts=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +68,8 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
         setContentView(R.layout.activity_movice_info);
         ButterKnife.bind(this);
         initView();
-        fillData();
+        mPresenter=new MovieInfoPresenter(this);
+
     }
 
     private void initView(){
@@ -79,23 +103,44 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
                         }
                     });
         }
-
-
+        mCastsAdapter=new MovieCastsAdapter(this,casts);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rv_casts.setLayoutManager(layoutManager);
+        rv_casts.setItemAnimator(new DefaultItemAnimator());
+        rv_casts.setAdapter(mCastsAdapter);
     }
 
     @Override
     public void showMovieInfo(MovieEntry info) {
-
+        etvContent.setText(info.getSummary());
+        tvOriginalName.setText("原名："+info.getOriginal_title());
+        tvCollectionNum.setText(info.getCollect_count()+" 人收藏");
+        StringBuilder countries=new StringBuilder();
+        for (String a:info.getCountries()){
+            countries.append(a).append("、");
+        }
+        countries.deleteCharAt(countries.length()-1);
+        tvCountryAndYear.setText(info.getYear()+" / "+countries);
+        StringBuilder types=new StringBuilder();
+        for (String a:info.getGenres()){
+            types.append(a).append("、");
+        }
+        types.deleteCharAt(types.length()-1);
+        tvTypes.setText(types+"");
+        tvScore.setText(info.getRating().getAverage()+"");
+        tvScoreNum.setText(info.getRatings_count()+" 人");
+        mCastsAdapter.setNewData(info.getCasts());
     }
 
     @Override
     public void initData() {
-
+        mPresenter.getMovieInfo(mEntry.getId());
     }
 
     @Override
     public void setPresenter(MoviceInfoContract.Presenter presenter) {
-
+        mPresenter=presenter;
     }
 
     @Override
@@ -123,7 +168,15 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
 
     }
 
-    private void fillData(){
-        etvContent.setText("上路的开发九埃里克森打飞机啊两三块等解封拉开司法局卡拉京东方啦暑假待付款撒点击分类开始的就看风景昂克赛拉等解封啦暑假待付款拉屎弗兰克就奥斯卡了的法伤恐龙当家福利卡圣诞节快乐废旧塑料卡解放路卡设计费看来都是就爱看了福建看来都是接口了接口就沙龙的看法卡死来看待分开了sad九分裤拉水电费进阿里放进来看就是拉的咖啡机拉时代峻峰斯科拉法健身卡辣等解封卡萨丁发卡萨放假看了三大就发上来看冯老师复读机啊来说坑爹费卢卡斯家里看打算离开发佳世客烂赌夫了三分离开撒旦教龙口粉丝单反");
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPresenter.subscribe();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mPresenter.unSubscribe();
     }
 }

@@ -8,5 +8,5 @@ package com.cyl.doumu.data.base;
  */
 public class HttpConfigs {
     public static final String BASE_URL="https://api.douban.com";
-    public static final int PAGE_SIZE=20;
+    public static final int PAGE_SIZE=10;
 }

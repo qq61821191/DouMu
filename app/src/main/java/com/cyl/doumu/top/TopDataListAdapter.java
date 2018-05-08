@@ -48,11 +48,14 @@ public class TopDataListAdapter extends BaseQuickAdapter<MovieEntry,BaseViewHold
 
         helper.setText(R.id.tv_item_hot_list_casts,"类别："+genres)
                 .setText(R.id.tv_item_hot_list_directors,"导演："+directors)
-                .setText(R.id.tv_item_hot_list_rating,"评分："+item.getRating().getAverage())
+                .setText(R.id.tv_item_hot_list_rating,"评分："+(item.getRating()==null?"0.0":item.getRating().getAverage()))
                 .setText(R.id.tv_item_hot_list_title,item.getTitle());
-        Glide.with(mContext)
-                .load(item.getImages().getSmall())
-                .into((ImageView)helper.getView(R.id.iv_item_hot_list_img));
+        if(item.getImages()!=null && item.getImages().getSmall()!=null && !item.getImages().getSmall().equals("")){
+            Glide.with(mContext)
+                    .load(item.getImages().getSmall())
+                    .into((ImageView)helper.getView(R.id.iv_item_hot_list_img));
+        }
+
 
     }
 }

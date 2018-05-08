@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.cyl.doumu.bean.MovieListBean;
 import com.cyl.doumu.data.DouBanImpl;
+import com.cyl.doumu.data.base.HttpConfigs;
 
 import org.reactivestreams.Subscription;
 
@@ -39,7 +40,7 @@ public class UpComingPresenter implements UpComingContract.Presenter {
     @Override
     public void getUpComingData(int start) {
         addSubscription(
-        mDouBan.getUpComing(start)
+        mDouBan.getUpComing((start-1)* HttpConfigs.PAGE_SIZE)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Consumer<Subscription>() {
                     @Override
@@ -65,7 +66,7 @@ public class UpComingPresenter implements UpComingContract.Presenter {
 
     @Override
     public void subscribe() {
-        getUpComingData(0);
+        getUpComingData(1);
 
     }
 

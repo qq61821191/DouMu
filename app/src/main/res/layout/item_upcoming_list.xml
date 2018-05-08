@@ -43,7 +43,14 @@
                     android:textSize="16sp"
                     android:textColor="@color/colorSecondText"
                     android:text="评分：8.0"/>
-
+                <TextView
+                    android:id="@+id/tv_item_upcoming_list_want"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="3.4万人想看"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/colorAccent"/>
             </LinearLayout>
 
             <TextView
@@ -64,13 +71,5 @@
                 android:text="主演：成龙、李连杰、甄子丹、王宝强、小沈阳、周华健"/>
         </LinearLayout>
     </LinearLayout>
-    <TextView
-        android:id="@+id/tv_item_upcoming_list_want"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="3.4万人想看"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/colorAccent"/>
+
 </RelativeLayout>

@@ -26,12 +26,6 @@ public interface TopContract {
     interface View extends BaseView<Presenter>{
         void showType(List<String> data);
 
-        void showTop250Data(MovieListBean data);
-
-        void showUsBox(MovieListBean data);
-
-        void showWeekly(MovieListBean data);
-
-        void showBestNewData(MovieListBean data);
+        void showData(MovieListBean data);
     }
 }

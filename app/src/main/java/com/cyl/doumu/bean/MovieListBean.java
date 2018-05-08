@@ -22,6 +22,7 @@ public class MovieListBean {
     private int total;
     private int start;
     private int count;
+    private String data;
     private List<MovieEntry>  subjects;
 
     public String getTitle() {
@@ -62,5 +63,13 @@ public class MovieListBean {
 
     public void setSubjects(List<MovieEntry> subjects) {
         this.subjects = subjects;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }
