@@ -143,6 +143,8 @@ public class HotFragment extends BaseFragment implements HotContract.View{
     @Override
     public void showError(String err) {
         mAdapter.loadMoreFail();
+        mRefreshLayout.setRefreshing(false);
+        UIUtils.toastData("数据获取失败");
     }
 
     @Override

@@ -69,8 +69,10 @@
         android:focusableInTouchMode="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <LinearLayout
+            android:id="@+id/ll_movie_info_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:descendantFocusability="blocksDescendants"
             android:orientation="vertical">
             <RelativeLayout
@@ -104,14 +106,14 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorAccent"
                             android:textSize="18sp"
-                            android:text="8.6"/>
+                            android:text=""/>
                         <TextView
                             android:id="@+id/tv_movie_info_score_num"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="8sp"
                             android:textColor="@color/colorSecondText"
-                            android:text="111532人"/>
+                            android:text=""/>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
             </RelativeLayout>

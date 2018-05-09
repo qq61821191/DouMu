@@ -4,6 +4,7 @@ import android.database.Observable;
 
 import com.cyl.doumu.bean.MovieEntry;
 import com.cyl.doumu.bean.MovieListBean;
+import com.cyl.doumu.bean.UsBoxListBean;
 import com.cyl.doumu.data.base.HttpConfigs;
 import com.cyl.doumu.data.base.RetrofitHelper;
 import com.cyl.doumu.data.services.DouBanService;
@@ -62,7 +63,7 @@ public class DouBanImpl {
         return getService().getTop250(start,HttpConfigs.PAGE_SIZE);
     }
 
-    public Flowable<MovieListBean> getUsBox(int start){
+    public Flowable<UsBoxListBean> getUsBox(int start){
 
         return getService().getUsBox(start,HttpConfigs.PAGE_SIZE);
     }

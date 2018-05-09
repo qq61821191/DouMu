@@ -125,7 +125,9 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
 
     @Override
     public void showError(String err) {
+        mRefreshLayout.setRefreshing(false);
         mListAdapter.loadMoreFail();
+        UIUtils.toastData("数据获取失败");
     }
 
     @Override
@@ -191,8 +193,8 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
     BaseQuickAdapter.OnItemClickListener itemClick=new BaseQuickAdapter.OnItemClickListener() {
         @Override
         public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-            RelativeLayout rl=(RelativeLayout)view;
-            ImageView img=rl.findViewById(R.id.iv_item_upcoming_list_img);
+            LinearLayout ll=(LinearLayout)view;
+            ImageView img=ll.findViewById(R.id.iv_item_hot_list_img);
             BitmapDrawable bd = (BitmapDrawable) img.getDrawable();
             Bitmap bitmap=bd.getBitmap();
             Intent intent=new Intent(getContext(),MoviceInfoActivity.class);

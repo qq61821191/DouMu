@@ -106,6 +106,8 @@ public class UpComingFragment extends BaseFragment implements UpComingContract.V
     @Override
     public void showError(String err) {
         mAdapter.loadMoreFail();
+        mRefreshLayout.setRefreshing(false);
+        UIUtils.toastData("数据获取失败");
     }
 
     @Override

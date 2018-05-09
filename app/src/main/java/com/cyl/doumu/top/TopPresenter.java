@@ -2,7 +2,10 @@ package com.cyl.doumu.top;
 
 import android.support.annotation.NonNull;
 
+import com.cyl.doumu.bean.MovieEntry;
 import com.cyl.doumu.bean.MovieListBean;
+import com.cyl.doumu.bean.UsBoxListBean;
+import com.cyl.doumu.bean.UsBoxMovie;
 import com.cyl.doumu.data.DouBanImpl;
 import com.cyl.doumu.data.base.HttpConfigs;
 
@@ -86,10 +89,16 @@ public class TopPresenter implements TopContract.Presenter {
                 })
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<MovieListBean>() {
+                .subscribe(new Consumer<UsBoxListBean>() {
                     @Override
-                    public void accept(MovieListBean movieListBean) throws Exception {
-                        mView.showData(movieListBean);
+                    public void accept(UsBoxListBean movieListBean) throws Exception {
+                        List<MovieEntry> data=new ArrayList<>();
+                        for (UsBoxMovie movie:movieListBean.getSubjects()){
+                            data.add(movie.getSubject());
+                        }
+                        MovieListBean bean=new MovieListBean();
+                        bean.setSubjects(data);
+                        mView.showData(bean);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

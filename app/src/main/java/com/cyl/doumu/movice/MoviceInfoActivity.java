@@ -10,7 +10,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -56,6 +58,8 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
     TextView tvScore;
     @BindView(R.id.tv_movie_info_score_num)
     TextView tvScoreNum;
+    @BindView(R.id.ll_movie_info_data)
+    LinearLayout llData;
 
     private MovieEntry mEntry;
     private MoviceInfoContract.Presenter mPresenter;
@@ -113,6 +117,7 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
 
     @Override
     public void showMovieInfo(MovieEntry info) {
+        llData.setVisibility(View.VISIBLE);
         etvContent.setText(info.getSummary());
         tvOriginalName.setText("原名："+info.getOriginal_title());
         tvCollectionNum.setText(info.getCollect_count()+" 人收藏");

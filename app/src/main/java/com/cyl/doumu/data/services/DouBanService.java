@@ -4,6 +4,7 @@ import android.graphics.Movie;
 
 import com.cyl.doumu.bean.MovieEntry;
 import com.cyl.doumu.bean.MovieListBean;
+import com.cyl.doumu.bean.UsBoxListBean;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
@@ -29,7 +30,7 @@ public interface DouBanService {
     Flowable<MovieListBean> getTop250(@Query("start") int start,@Query("count") int count);
 
     @GET("/v2/movie/us_box")
-    Flowable<MovieListBean> getUsBox(@Query("start") int start,@Query("count") int count);
+    Flowable<UsBoxListBean> getUsBox(@Query("start") int start, @Query("count") int count);
 
     @GET("/v2/movie/weekly")
     Flowable<MovieListBean> getWeekly(@Query("start") int start,@Query("count") int count);
