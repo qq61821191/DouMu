@@ -16,10 +16,14 @@
 
 package com.cyl.doumu.base;
 
+/**
+ * author：cyl
+ * presenter基类接口
+ */
 public interface BasePresenter {
-
+    //订阅
     void subscribe();
-
+    //取消订阅
     void unSubscribe();
 
 }

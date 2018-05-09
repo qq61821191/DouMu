@@ -12,8 +12,11 @@ import com.cyl.doumu.bean.Cast;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2018/5/8.
+/*
+ * @Description: 电影主演列表的适配器
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class MovieCastsAdapter extends BaseQuickAdapter<Cast,BaseViewHolder> {

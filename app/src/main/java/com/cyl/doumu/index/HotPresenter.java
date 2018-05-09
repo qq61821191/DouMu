@@ -15,7 +15,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /*
- * @Description: 
+ * @Description: 正在热映的presenter实现类
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/23 0023$ 11:55$

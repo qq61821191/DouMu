@@ -32,8 +32,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by Administrator on 2018/4/18.
+/*
+ * @Description: 即将上映界面
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class UpComingFragment extends BaseFragment implements UpComingContract.View {

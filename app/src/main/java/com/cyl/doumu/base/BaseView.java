@@ -16,6 +16,11 @@
 
 package com.cyl.doumu.base;
 
+/**
+ * author：cyl
+ * 界面的基类接口
+ * @param <T>
+ */
 public interface BaseView<T> {
 
     void setPresenter(T presenter);

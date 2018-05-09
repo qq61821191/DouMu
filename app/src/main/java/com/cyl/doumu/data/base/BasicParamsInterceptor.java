@@ -17,8 +17,11 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.Buffer;
 
-/**
- * OKHttp 基本参数拦截器
+/*
+ * @Description: 基础参数拦截器
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class BasicParamsInterceptor implements Interceptor {

@@ -16,8 +16,11 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * Created by hhh on 2018/4/15.
+/*
+ * @Description: 即将上映 presenter实现类
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class UpComingPresenter implements UpComingContract.Presenter {

@@ -15,14 +15,12 @@ import android.view.WindowManager;
 
 import com.cyl.doumu.MyApplication;
 import com.cyl.doumu.R;
-import com.cyl.doumu.utils.SPUtils;
 import com.cyl.doumu.utils.UIUtils;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 /**
- * Author   :hymanme
- * Email    :hymanme@163.com
- * Create at 2016/7/14
+ * Author   :cyl
+ * Create at 2018/04/14
  * Description:所有activity的基类，处理activity的共性内容和逻辑
  */
 

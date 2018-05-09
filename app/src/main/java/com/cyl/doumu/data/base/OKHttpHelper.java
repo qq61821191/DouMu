@@ -18,6 +18,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 
+/*
+ * @Description: 封装的okhttp请求
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
+ */
 public class OKHttpHelper {
 
     private volatile static OKHttpHelper mInstance;
@@ -27,7 +33,9 @@ public class OKHttpHelper {
     private OKHttpHelper(OkHttpClient okHttpClient) {
         mContext=MyApplication.getInstance().getContext();
         if (okHttpClient == null) {
+            //设置缓存
             Cache cache = new Cache(new File(mContext.getCacheDir().getAbsolutePath(), "DouMuCache"), 1024 * 1024 * 50);
+            //设置debug日志信息
             HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                 @Override
                 public void log(String message) {

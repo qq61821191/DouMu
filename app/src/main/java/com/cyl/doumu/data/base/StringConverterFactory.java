@@ -8,6 +8,12 @@ import retrofit2.Converter;
 import retrofit2.Converter.Factory;
 import retrofit2.Retrofit;
 
+/*
+ * @Description:
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
+ */
 public class StringConverterFactory extends Factory {
 
     public static final StringConverterFactory INSTANCE = new StringConverterFactory();

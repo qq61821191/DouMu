@@ -4,8 +4,11 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-/**
- * Created by Administrator on 2016/11/30.
+/*
+ * @Description: 网络相关工具类
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class NetUtil {

@@ -16,8 +16,11 @@ import com.cyl.doumu.R;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2018/4/19.
+/*
+ * @Description: 榜单分类适配器
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class TopTypeListAdapter extends BaseQuickAdapter<String,BaseViewHolder> {

@@ -32,8 +32,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by Administrator on 2018/4/19.
+/*
+ * @Description: 榜单界面
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class TopFragment extends BaseFragment implements TopContract.View  {
@@ -59,6 +62,7 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
 
     private int page=1;
 
+    //显示分类列表
     @Override
     public void showType(List<String> data) {
         if(mTypeAdapter==null){
@@ -78,6 +82,7 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
         mTypeAdapter.setNewData(data);
     }
 
+    //数据展现
     @Override
     public void showData(MovieListBean data) {
         mListAdapter.setEnableLoadMore(true);
@@ -170,6 +175,7 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
         mPresenter.unSubscribe();
     }
 
+    //加载更多监听事件
     BaseQuickAdapter.RequestLoadMoreListener requestLoadMoreListener=new BaseQuickAdapter.RequestLoadMoreListener() {
         @Override
         public void onLoadMoreRequested() {
@@ -190,6 +196,7 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
         }
     };
 
+    //item点击事件
     BaseQuickAdapter.OnItemClickListener itemClick=new BaseQuickAdapter.OnItemClickListener() {
         @Override
         public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -207,6 +214,7 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
         }
     };
 
+    //刷新事件
     SwipeRefreshLayout.OnRefreshListener onRefreshListener=new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
@@ -214,6 +222,7 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
         }
     };
 
+    //刷新具体实现
     private void refreshData(){
         mListAdapter.setEnableLoadMore(false);
         page=1;

@@ -3,8 +3,11 @@ package com.cyl.doumu.utils;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-/**
- * Created by hymanme on 2015/8/26.
+/*
+ * @Description: SharedPreferences操作类
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 public class SPUtils {
     private SPUtils() {

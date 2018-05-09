@@ -5,7 +5,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
+/*
+ * @Description: Retrofit的封装
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
+ */
 public class RetrofitHelper {
 
     private static RetrofitHelper mInstance;

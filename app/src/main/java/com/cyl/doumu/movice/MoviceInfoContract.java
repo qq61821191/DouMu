@@ -4,8 +4,11 @@ import com.cyl.doumu.base.BasePresenter;
 import com.cyl.doumu.base.BaseView;
 import com.cyl.doumu.bean.MovieEntry;
 
-/**
- * Created by Administrator on 2018/4/20.
+/*
+ * @Description: 电影详情 契约类
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public interface MoviceInfoContract {

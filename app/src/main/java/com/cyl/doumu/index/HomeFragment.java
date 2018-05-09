@@ -35,7 +35,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * @description: 主页
+ * @description: 热门界面
  * @author: Cyl
  * @date: 2018-03-22  17:06
  * @version: V1.0

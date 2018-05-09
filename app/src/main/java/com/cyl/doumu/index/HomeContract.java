@@ -4,7 +4,7 @@ import com.cyl.doumu.base.BasePresenter;
 import com.cyl.doumu.base.BaseView;
 
 /*
- * @Description: 
+ * @Description: 首页的契约类
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/23 0023$ 11:13$

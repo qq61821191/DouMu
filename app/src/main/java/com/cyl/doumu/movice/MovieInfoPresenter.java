@@ -11,8 +11,11 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * Created by Administrator on 2018/5/7.
+/*
+ * @Description: 电影详情 presenter的实现类
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class MovieInfoPresenter implements MoviceInfoContract.Presenter {

@@ -31,11 +31,11 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.tl_main_bottom) TabLayout mTabLayout;
     @BindView(R.id.viewpager) ViewPager mViewPager;
     //Tab 文字
-    private final int[] TAB_TITLES = new int[]{R.string.main_menu_home,R.string.main_menu_top,R.string.main_menu_mine};
+    private final int[] TAB_TITLES = new int[]{R.string.main_menu_home,R.string.main_menu_top};
     //Tab 图片
-    private final int[] TAB_IMGS = new int[]{R.drawable.sl_menu_home,R.drawable.sl_menu_top,R.drawable.sl_menu_my};
+    private final int[] TAB_IMGS = new int[]{R.drawable.sl_menu_home,R.drawable.sl_menu_top};
     //Fragment 数组
-    private final Fragment[] TAB_FRAGMENTS = new Fragment[] {new HomeFragment(),new TopFragment(),new HotFragment()};
+    private final Fragment[] TAB_FRAGMENTS = new Fragment[] {new HomeFragment(),new TopFragment()};
     //Tab 数目
     private final int COUNT = TAB_TITLES.length;
     private MyViewPagerAdapter mAdapter;
@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
-     * @description: 设置添加Tab
+     * @description: 设置Tab填充图标和文字
      */
     private void setTabs(TabLayout tabLayout, LayoutInflater inflater, int[] tabTitlees, int[] tabImgs){
         for (int i = 0; i < tabImgs.length; i++) {
@@ -96,6 +96,8 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+
+    //按两次返回退出程序
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {

@@ -24,6 +24,7 @@ import com.cyl.doumu.bean.Cast;
 import com.cyl.doumu.bean.Images;
 import com.cyl.doumu.bean.MovieEntry;
 import com.cyl.doumu.utils.Blur;
+import com.cyl.doumu.utils.UIUtils;
 import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.util.ArrayList;
@@ -31,7 +32,12 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+/*
+ * @Description: 电影详情界面
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/7
+ */
 public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContract.View{
     @BindView(R.id.iv_details_img)
     ImageView iv_img;
@@ -76,6 +82,7 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
 
     }
 
+    //初始化界面
     private void initView(){
         if (null != mToolbar) {
             setSupportActionBar(mToolbar);
@@ -115,6 +122,7 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
         rv_casts.setAdapter(mCastsAdapter);
     }
 
+    //数据展现
     @Override
     public void showMovieInfo(MovieEntry info) {
         llData.setVisibility(View.VISIBLE);
@@ -138,6 +146,7 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
         mCastsAdapter.setNewData(info.getCasts());
     }
 
+    //初始化数据
     @Override
     public void initData() {
         mPresenter.getMovieInfo(mEntry.getId());
@@ -165,7 +174,7 @@ public class MoviceInfoActivity extends BaseActivity implements MoviceInfoContra
 
     @Override
     public void showError(String err) {
-
+        UIUtils.toastData("数据获取失败");
     }
 
     @Override

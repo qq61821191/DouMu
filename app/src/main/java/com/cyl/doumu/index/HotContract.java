@@ -5,7 +5,7 @@ import com.cyl.doumu.base.BaseView;
 import com.cyl.doumu.bean.MovieListBean;
 
 /*
- * @Description: 
+ * @Description: 正在热映的契约类
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/23 0023$ 11:13$

@@ -6,7 +6,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-
+/*
+ * @Description: 测试类 没有用
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
+ */
 public class ScrollingActivity extends AppCompatActivity {
 
     @Override

@@ -4,8 +4,11 @@ import com.cyl.doumu.base.BasePresenter;
 import com.cyl.doumu.base.BaseView;
 import com.cyl.doumu.bean.MovieListBean;
 
-/**
- * Created by cyl on 2018/4/15.
+/*
+ * @Description: 即将上映 契约类
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public interface UpComingContract {

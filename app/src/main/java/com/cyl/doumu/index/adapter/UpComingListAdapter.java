@@ -13,7 +13,7 @@ import com.cyl.doumu.bean.MovieEntry;
 import java.util.List;
 
 /*
- * @Description: 
+ * @Description: 即将上映的电影列表适配器
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/31 0031$ 09:40$

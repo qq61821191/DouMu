@@ -14,7 +14,7 @@ import com.cyl.doumu.bean.MovieListBean;
 import java.util.List;
 
 /*
- * @Description: 
+ * @Description: 正在热映的列表适配器
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/31 0031$ 09:40$

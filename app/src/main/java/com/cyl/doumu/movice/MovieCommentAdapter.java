@@ -10,15 +10,18 @@ import com.cyl.doumu.bean.MovieEntry;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2018/5/7.
+/*
+ * @Description: 电影评论列表的适配器
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class MovieCommentAdapter extends BaseQuickAdapter<MovieEntry,BaseViewHolder> {
     private Context mContext;
 
     public MovieCommentAdapter(Context context, @Nullable List<MovieEntry> data) {
-        super(R.layout.item_top_type, data);
+        super(R.layout.item_movie_info_comment, data);
         mContext=context;
     }
 

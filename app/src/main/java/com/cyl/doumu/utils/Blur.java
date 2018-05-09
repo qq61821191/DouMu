@@ -5,7 +5,12 @@ import android.graphics.Bitmap;
 
 // Slightly modified source from Nicolas Pomepuy
 // https://github.com/PomepuyN/BlurEffectForAndroidDesign
-
+/*
+ * @Description: 图片处理工具类
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
+ */
 public class Blur {
 
     public static Bitmap apply(Bitmap sentBitmap) {

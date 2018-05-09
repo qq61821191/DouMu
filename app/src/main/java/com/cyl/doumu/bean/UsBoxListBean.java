@@ -3,8 +3,11 @@ package com.cyl.doumu.bean;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by Administrator on 2018/5/9.
+/*
+ * @Description: 北美排行榜返回的数据
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public class UsBoxListBean implements Serializable {

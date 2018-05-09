@@ -31,7 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /*
- * @Description: 
+ * @Description: 正在热映的fragment
  * @Author: Cyl
  * @Version: V1.0
  * @Create: 2018/3/22 0022$ 16:45$
@@ -58,6 +58,7 @@ public class HotFragment extends BaseFragment implements HotContract.View{
         return view;
     }
 
+    //初始化界面
     private void initView(){
         mAdapter=new HotListAdapter(getContext(),mDatas);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -69,12 +70,14 @@ public class HotFragment extends BaseFragment implements HotContract.View{
         mRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.colorAccent));
     }
 
+    //初始化数据
     @Override
     public void initData() {
         mRefreshLayout.setRefreshing(true);
         mPresenter.subscribe();
     }
 
+    //加载更多事件监听
     BaseQuickAdapter.RequestLoadMoreListener requestLoadMoreListener=new BaseQuickAdapter.RequestLoadMoreListener() {
         @Override
         public void onLoadMoreRequested() {
@@ -98,6 +101,7 @@ public class HotFragment extends BaseFragment implements HotContract.View{
 
     }
 
+    //数据绑定
     @Override
     public void showHotListData(MovieListBean lists) {
         mAdapter.setEnableLoadMore(true);
@@ -123,6 +127,7 @@ public class HotFragment extends BaseFragment implements HotContract.View{
         page++;
     }
 
+    //item点击事件
     BaseQuickAdapter.OnItemClickListener itemClick=new BaseQuickAdapter.OnItemClickListener() {
         @Override
         public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -169,6 +174,7 @@ public class HotFragment extends BaseFragment implements HotContract.View{
 
     }
 
+    //刷新事件
     SwipeRefreshLayout.OnRefreshListener onRefreshListener=new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {

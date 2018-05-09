@@ -6,8 +6,11 @@ import com.cyl.doumu.bean.MovieListBean;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2018/4/19.
+/*
+ * @Description: 榜单契约类
+ * @Author: Cyl
+ * @Version: V1.0
+ * @Create: 2018/5/8
  */
 
 public interface TopContract {
