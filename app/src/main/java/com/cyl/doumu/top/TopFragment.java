@@ -103,7 +103,12 @@ public class TopFragment extends BaseFragment implements TopContract.View  {
             mListAdapter.addData(data.getSubjects());
         }
         mDatas.addAll(data.getSubjects());
-        mListAdapter.loadMoreComplete();
+        if(curTypePosition==3){
+            mListAdapter.loadMoreEnd(false);
+        }else{
+            mListAdapter.loadMoreComplete();
+        }
+
         page++;
     }
 
